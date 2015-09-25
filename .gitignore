@@ -1,8 +1,26 @@
+# ignore ModelSim generated files and directories (temp files and so on)
+[_@]*
+
+# ignore compilation output of ModelSim
+*.mti
+*.dat
+*.dbs
+*.psm
 *.bak
-HW/HW2/wlft8idkf3
-*.qdb
-HW/HW2/work/_lib1_8.qpg
-*.qtl
-HW/HW2/work/_info
+*.cmp
+*.jpg
+*.html
+*.bsf
+
+# ignore simulation output of ModelSim
+wlf*
 *.wlf
-HW/HW2/vish_stacktrace.vstf
+*.vstf
+*.ucdb
+cov*/
+transcript*
+sc_dpiheader.h
+vsim.dbg
+
+*.d
+*.v

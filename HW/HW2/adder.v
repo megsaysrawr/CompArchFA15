@@ -41,17 +41,15 @@ endmodule
 
 //start the testing module
 module testFullAdder;
-//define three input variables with memory
-reg a, b, carryin;
-//define the two output variables as wires
-wire sum, carryout;
+reg a, b, carryin;	//define three input variables with memory
+wire sum, carryout;	//define the two output variables as wires
 
 //uncomment the behavioral for testing purposes and to compare function with structural
 //behavioralFullAdder adder (sum, carryout, a, b, carryin);
 structuralFullAdder adder (sum, carryout, a, b, carryin);
 
 initial begin	//starts printing to the transcript
-$display("A  B Cin | Cout Output| Expected Output");	//nice formatting for a title line
+$display("A  B Cin | Cout Output| Expected Output");	//nice formatting for the title line
 a=0;b=0;carryin=0; #1000	//sets three inputs to defined values, adds a delay of 1000 time units
 $display("%b  %b  %b  |  %b     %b   |     0 0", a, b, carryin, carryout, sum);		//displays formatted inputs and outputs alongside expected outcomes
 a=0;b=0;carryin=1; #1000
