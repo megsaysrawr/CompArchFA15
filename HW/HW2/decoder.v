@@ -1,3 +1,8 @@
+// define gates with delays
+`define AND and #50
+`define OR or #50
+`define NOT not #50
+
 module behavioralDecoder(out0,out1,out2,out3, address0,address1, enable);
 output out0, out1, out2, out3;
 input address0, address1;
@@ -9,15 +14,24 @@ module structuralDecoder(out0,out1,out2,out3, address0,address1, enable);
 output out0, out1, out2, out3;
 input address0, address1;
 input enable;
-  // Your decoder code here
+wire notA0, notA1;
+
+`NOT nA0(notA0, address0);
+`NOT nA1(notA1, address1);
+
+`AND and0(out0,enable,notA0,notA1);
+`AND and1(out1,enable,address0,notA1);
+`AND and2(out2,enable,notA0,address1);
+`AND and3(out3,enable,address0,address1);
+
 endmodule
 
 module testDecoder; 
 reg addr0, addr1;
 reg enable;
 wire out0,out1,out2,out3;
-behavioralDecoder decoder (out0,out1,out2,out3,addr0,addr1,enable);
-//structuralDecoder decoder (out0,out1,out2,out3,addr0,addr1,enable); // Swap after testing
+//behavioralDecoder decoder (out0,out1,out2,out3,addr0,addr1,enable);
+structuralDecoder decoder (out0,out1,out2,out3,addr0,addr1,enable); // Swap after testing
 
 initial begin
 $display("En A0 A1| O0 O1 O2 O3 | Expected Output");
