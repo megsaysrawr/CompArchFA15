@@ -1,0 +1,7 @@
+deliverable_6.txt
+
+A decoder takes a single input and passes it to one of its outputs. In this case, there are 32 possible outputs.
+The verilog "<<" shifts the enable by the value of the bits in the address and assigns this to the corresponding output.
+For example, to assign the fifth output, if the enable is true, you shifted by the address value of 5'b00101 (d5), which makes the output set to 32'b00000000000000000000000000010000 (d16). This output is similar to the "one hot" approach that was introduced in class on day 13 in which only one bit is allowed to be true at a time. It is the location of this bit (the fifth place from the right) that cooresponds to the value of the address. Because there are five address bits, this allows for 32 possible outputs to be assigned.
+
+Note: On this homework assignment, I collaborated with Jacob Riedel.

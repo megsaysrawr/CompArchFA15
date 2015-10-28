@@ -1,4 +1,4 @@
-vlog -reportprogress 300 -work work regfile.t.v
+vlog -reportprogress 300 -work work regfile.t.v regfile.v
 vsim -voptargs="+acc" hw4testbenchharness
 
 add wave -position insertpoint  \
